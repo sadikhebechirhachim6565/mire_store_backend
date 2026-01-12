@@ -1,0 +1,2 @@
+MONGO_URI=mongodb+srv://sadikhebechirhachim6565_db_user:Basmina6565@cluster0.elhzhj.mongodb.net/mire_store?retryWrites=true&w=majority
+PORT=5000
