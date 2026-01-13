@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
-const Colis = require("../models/Colis");
+const Colis = require("../models/colis");
 
 // ➕ Créer un colis
 router.post("/create", async (req, res) => {
@@ -55,7 +55,7 @@ router.get("/track/:trackingNumber", async (req, res) => {
   }
 });
 
-module.exports = router;// ADMIN - Voir tous les colis
+// 🛠️ ADMIN - Voir tous les colis
 router.get("/all", async (req, res) => {
   try {
     const colis = await Colis.find().sort({ createdAt: -1 });
@@ -65,7 +65,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-// ADMIN - Modifier le statut
+// 🛠️ ADMIN - Modifier le statut
 router.put("/status/:id", async (req, res) => {
   try {
     const { status } = req.body;
@@ -81,3 +81,6 @@ router.put("/status/:id", async (req, res) => {
     res.status(500).json({ message: "Erreur serveur" });
   }
 });
+
+// ⬇️ TOUJOURS À LA FIN
+module.exports = router;
